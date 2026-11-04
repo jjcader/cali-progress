@@ -1,0 +1,6 @@
+const V='cali-mw1mybt1';const SHELL=['./','index.html','app.js?v=mw1mybt1','app.css?v=mw1mybt1','manifest.webmanifest','icon-180.png','icon-192.png'];
+self.addEventListener('install',e=>{e.waitUntil(caches.open(V).then(c=>c.addAll(SHELL)).then(()=>self.skipWaiting()))});
+self.addEventListener('activate',e=>{e.waitUntil(caches.keys().then(ks=>Promise.all(ks.filter(k=>k!==V&&k!=='cali-fonts').map(k=>caches.delete(k)))).then(()=>self.clients.claim()))});
+self.addEventListener('fetch',e=>{const u=new URL(e.request.url);if(e.request.method!=='GET')return;
+if(u.host.includes('fonts.g')){e.respondWith(caches.open('cali-fonts').then(async c=>{const hit=await c.match(e.request);const net=fetch(e.request).then(r=>{c.put(e.request,r.clone());return r}).catch(()=>hit);return hit||net}));return}
+if(u.origin===location.origin){e.respondWith(caches.match(e.request,{ignoreSearch:e.request.mode==='navigate'}).then(hit=>hit||fetch(e.request).then(r=>{if(r.ok){const cl=r.clone();caches.open(V).then(c=>c.put(e.request,cl))}return r}).catch(()=>caches.match('index.html'))))}});
