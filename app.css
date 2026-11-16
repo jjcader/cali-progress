@@ -453,12 +453,12 @@ html, body { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; touch-actio
 .tt-clock b small { font-size: .5em; color: var(--fg2); letter-spacing: 0; }
 .tt-sub { font: 500 14px var(--f-mono); color: var(--fg2); margin-top: 4px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%; }
 .toptimer.paused .tt-clock b { color: var(--ora); }
-.tt-btn { width: 56px; height: 56px; border-radius: 28px; background: var(--surface3); font-size: 15.5px; color: var(--fg); font: 700 13.5px var(--f-body); display: inline-flex; align-items: center; justify-content: center; flex: none; }
+.tt-btn { width: 60px; height: 44px; border-radius: 22px; background: var(--surface3); font-size: 15px; color: var(--fg); font: 700 15px var(--f-body); display: inline-flex; align-items: center; justify-content: center; flex: none; }
 .tt-btn:disabled { opacity: .4; }
 .tt-btn.go { background: var(--accent); color: var(--onaccent); }
 .tt-finish { height: 42px; padding: 0 13px; border-radius: 21px; background: var(--chalk); color: var(--onchalk); font: 700 15px var(--f-body); flex: none; }
 .toptimer .laplist { max-width: 720px; margin: 8px auto 0; }
-.page.sess.live { padding-top: calc(env(safe-area-inset-top, 0px) + 88px); }
+.page.sess.live { padding-top: calc(env(safe-area-inset-top, 0px) + 140px); }
 /* start / back-to-session button, bottom left */
 .fab { position: fixed; z-index: 32; right: max(16px, env(safe-area-inset-right, 0px)); bottom: calc(var(--tabh) + env(safe-area-inset-bottom, 0px) + 30px); height: 68px; border-radius: 34px; padding: 0 26px 0 20px; background: var(--accent); color: var(--onaccent); display: inline-flex; align-items: center; gap: 10px; box-shadow: 0 8px 24px rgba(0, 0, 0, .38); font: 750 19px var(--f-display); font-weight: 750; letter-spacing: .01em; }
 .fab svg { width: 28px; height: 28px; }
@@ -467,10 +467,9 @@ body.in-session .fab:not(.finfab) { display: none; }
 .tt-rest span { font: 700 11px var(--f-body); letter-spacing: .08em; text-transform: uppercase; }
 .tt-rest b { font: 700 30px/1.05 var(--f-mono); font-variant-numeric: tabular-nums; color: var(--fg); letter-spacing: -.5px; }
 .tt-rest.done span, .tt-rest.done b { color: var(--accent); }
-.tt-ctrl { position: fixed; z-index: 33; left: 0; right: 0; bottom: calc(var(--tabh) + env(safe-area-inset-bottom, 0px)); display: flex; align-items: center; gap: 10px; padding: 8px max(16px, env(safe-area-inset-right, 0px)) 8px max(16px, env(safe-area-inset-left, 0px)); background: color-mix(in srgb, var(--bg) 94%, transparent); border-top: 1px solid var(--line); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); }
+.tt-ctrl { display: flex; align-items: center; gap: 8px; margin-top: 8px; }
 .tt-ctrl .grow { flex: 1; }
-.tt-fin { height: 56px; padding: 0 26px 0 20px; border-radius: 28px; background: var(--accent); color: var(--onaccent); display: inline-flex; align-items: center; gap: 9px; font: 750 18px var(--f-display); font-weight: 750; }
-.page.sess.live { padding-bottom: calc(var(--tabh) + 72px + 110px + env(safe-area-inset-bottom, 0px)); }
+.tt-fin { height: 44px; padding: 0 20px 0 16px; border-radius: 22px; background: var(--accent); color: var(--onaccent); display: inline-flex; align-items: center; gap: 8px; font: 750 17px var(--f-display); font-weight: 750; }
 .page { padding-bottom: calc(var(--tabh) + 100px + env(safe-area-inset-bottom, 0px)); }
 /* the exercise card: notes for the whole exercise, a clear way to add a set */
 .notesbtn { display: inline-flex; align-items: center; gap: 5px; height: 32px; padding: 0 11px; border-radius: 16px; background: var(--surface2); color: var(--fg2); font: 600 13px var(--f-body); flex: none; }
@@ -516,6 +515,52 @@ body.in-session .fab:not(.finfab) { display: none; }
 @keyframes tab-in-r { from { left: 36px; opacity: .3; } to { left: 0; opacity: 1; } }
 @keyframes tab-in-l { from { left: -36px; opacity: .3; } to { left: 0; opacity: 1; } }
 .stickyhead { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 30; background: var(--bg); margin: -10px calc(-1 * max(16px, env(safe-area-inset-right, 0px))) 0 calc(-1 * max(16px, env(safe-area-inset-left, 0px))); padding: 10px max(16px, env(safe-area-inset-right, 0px)) 8px max(16px, env(safe-area-inset-left, 0px)); border-bottom: 1px solid var(--line); }
+/* warm-up card: free text */
+.excard.warm { --hue: var(--fg3); }
+.wtext { display: block; width: 100%; text-align: left; margin-top: 6px; font-size: 15.5px; line-height: 1.45; color: var(--fg); white-space: pre-wrap; }
+textarea.field.warmin { flex: 1; min-width: 0; min-height: 52px; resize: none; padding: 13px 12px; font: 16px/1.4 var(--f-body); background: var(--bg); }
+.excard.warm .setinput { align-items: flex-start; }
+/* supersets: an indented block with its own heading */
+.ssblock { border-left: 3px solid var(--fg3); padding-left: 12px; margin-left: 2px; display: flex; flex-direction: column; gap: 10px; }
+.ssblock.open { border-left-color: var(--accent); }
+.sshead { display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; font: 700 13px var(--f-body); letter-spacing: .06em; text-transform: uppercase; color: var(--fg2); }
+.sshead .muted { text-transform: none; letter-spacing: 0; font-weight: 500; font-size: 13.5px; }
+.sslist { display: flex; flex-direction: column; gap: 10px; }
+.ssblock:not(.open) .sslist:empty { display: none; }
+.ssdone { align-self: flex-start; height: 40px; padding: 0 16px; border-radius: 20px; background: var(--surface3); color: var(--fg); font: 650 15px var(--f-body); font-weight: 650; }
+.sslink { display: inline-flex; align-items: center; gap: 6px; padding: 6px 2px; }
+/* bodyweight box in the session line: stands out from the quiet text around it */
+.metaline .mi.bwbox { gap: 6px; padding: 3px 4px 3px 10px; border-radius: 11px; background: var(--surface2); box-shadow: inset 0 0 0 1.5px var(--surface3); color: var(--fg); }
+.metaline .mi.bwbox::before { content: none; }
+.metaline .mi.bwbox .bwl { font: 700 12px var(--f-body); letter-spacing: .06em; color: var(--fg2); }
+.metaline .mi.bwbox input.bare { width: 4.6ch; font: 650 16px var(--f-mono); font-weight: 650; text-align: right; color: var(--fg); }
+.metaline .mi.bwbox.nudge { box-shadow: inset 0 0 0 1.5px var(--rr1); }
+.unitseg.mini button { min-width: 28px; height: 24px; font-size: 12px; }
+.bwconv { font: 500 12.5px var(--f-mono); color: var(--fg3); padding-right: 6px; }
+.unitseg.chartunit { align-self: center; }
+.chip.prask { color: var(--pur); background: color-mix(in srgb, var(--pur) 14%, var(--surface2)); font-weight: 650; }
+.chip.prask.on { background: var(--pur); color: #fff; }
+/* chart: small switches at the top right of the chart card */
+.chartopts { display: flex; justify-content: flex-end; gap: 6px; margin: -2px 0 6px; }
+.switch.sm { gap: 6px; min-height: 26px; font-size: 12.5px; }
+.switch.sm .track { width: 30px; height: 18px; border-radius: 9px; }
+.switch.sm .knob { width: 14px; height: 14px; }
+.switch.sm.on .knob { transform: translateX(12px); }
+/* session screen: one type scale (the title; 17 for exercise names; 15 for everything else) and fewer boxes */
+.page.sess .metaline, .page.sess .switch, .page.sess .wtext, .page.sess .detbtn, .page.sess .ssdone, .page.sess .sslink { font-size: 15px; }
+.page.sess .exname { font-size: 17px; }
+.page.sess .setchip { font-size: 15px; }
+.page.sess .qtile { font: 600 15px/1.2 var(--f-body); min-height: 46px; }
+.page.sess .exnotes { font-size: 15px; }
+textarea.field.sessnote { background: transparent; padding: 6px 0; border-radius: 0; font-size: 15px; min-height: 32px; }
+.sshead { font: 600 15px var(--f-body); letter-spacing: 0; text-transform: none; color: var(--fg); }
+.sshead .muted { font-size: 15px; font-weight: 400; }
+.metaline .mi.bwbox, .metaline .mi.bwbox.nudge { box-shadow: none; padding: 2px 3px 2px 9px; }
+.metaline .mi.bwbox .bwl { font: 600 15px var(--f-body); letter-spacing: 0; color: var(--fg2); }
+.metaline .mi.bwbox input.bare { font: 600 15px var(--f-mono); }
+.metaline .mi.bwbox input.bare::placeholder, .metaline .mi.nudge input::placeholder { color: var(--fg3); }
+.page.sess .excard { padding-bottom: 11px; }
+.tt-rest.none b { color: var(--fg3); }
 
 /* Timeline tab */
 .tl-page.h { max-width: 1040px; }
