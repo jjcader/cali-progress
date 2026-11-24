@@ -1,4 +1,4 @@
-const V='cali-mwirb5ia';const SHELL=['./','index.html','app.js?v=mwirb5ia','app.css?v=mwirb5ia','manifest.webmanifest','icon-180.png','icon-192.png'];
+const V='cali-mwu2k04l';const SHELL=['./','index.html','app.js?v=mwu2k04l','app.css?v=mwu2k04l','manifest.webmanifest','icon-180.png','icon-192.png'];
 self.addEventListener('install',e=>{e.waitUntil(caches.open(V).then(c=>c.addAll(SHELL)).then(()=>self.skipWaiting()))});
 self.addEventListener('activate',e=>{e.waitUntil(caches.keys().then(ks=>Promise.all(ks.filter(k=>k!==V&&k!=='cali-fonts').map(k=>caches.delete(k)))).then(()=>self.clients.claim()))});
 self.addEventListener('message',e=>{if(e.data==='skip')self.skipWaiting()});

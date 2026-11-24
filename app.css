@@ -520,6 +520,8 @@ body.in-session .fab:not(.finfab) { display: none; }
 .wtext { display: block; width: 100%; text-align: left; margin-top: 6px; font-size: 15.5px; line-height: 1.45; color: var(--fg); white-space: pre-wrap; }
 textarea.field.warmin { flex: 1; min-width: 0; min-height: 52px; resize: none; padding: 13px 12px; font: 16px/1.4 var(--f-body); background: var(--bg); }
 .excard.warm .setinput { align-items: flex-start; }
+.excard.warm .okbtn { align-self: flex-end; }
+.wcheck { color: var(--accent); font-weight: 700; }
 /* supersets: an indented block with its own heading */
 .ssblock { border-left: 3px solid var(--fg3); padding-left: 12px; margin-left: 2px; display: flex; flex-direction: column; gap: 10px; }
 .ssblock.open { border-left-color: var(--accent); }
@@ -561,6 +563,9 @@ textarea.field.sessnote { background: transparent; padding: 6px 0; border-radius
 .metaline .mi.bwbox input.bare::placeholder, .metaline .mi.nudge input::placeholder { color: var(--fg3); }
 .page.sess .excard { padding-bottom: 11px; }
 .tt-rest.none b { color: var(--fg3); }
+
+.card.prcard { margin-top: 14px; padding: 6px 12px 8px; border-left: 3px solid var(--pur); }
+.card.prcard .listrow { padding: 8px 0; }
 
 /* Timeline tab */
 .tl-page.h { max-width: 1040px; }
