@@ -567,6 +567,10 @@ textarea.field.sessnote { background: transparent; padding: 6px 0; border-radius
 .card.prcard { margin-top: 14px; padding: 6px 12px 8px; border-left: 3px solid var(--pur); }
 .card.prcard .listrow { padding: 8px 0; }
 
+/* search: the typed words marked in each name; the first result (Enter picks it) stands out */
+mark.hit { background: color-mix(in srgb, var(--accent) 32%, transparent); color: inherit; border-radius: 3px; padding: 0 1px; font-weight: 600; }
+.listrow.tap.top, .toprow > .listrow { background: color-mix(in srgb, var(--accent) 11%, transparent); }
+
 /* Timeline tab */
 .tl-page.h { max-width: 1040px; }
 .tl-controls { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin: 0 0 8px; }
